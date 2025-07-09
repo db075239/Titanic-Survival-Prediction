@@ -1,70 +1,132 @@
-# Titanic Survival Prediction
+# 🚢 Titanic Survival Prediction
 
-This is my take, my try on the very well-known challenge on Kaggle: predicting passenger survival on the Titanic. This project explores various machine learning models and techniques to build a robust predictor for one of history's most tragic events.
+Welcome to my take on the well-known **Kaggle Titanic Machine Learning Challenge**. This project explores a variety of machine learning models and techniques to predict passenger survival aboard the Titanic — one of the most well-known tragedies in modern history.
 
-## Table of Contents
+---
 
-* [Introduction](#introduction)
-* [Project Goal](#project-goal)
-* [Dataset](#dataset)
-* [Methodology](#methodology)
-* [Models Implemented](#models-implemented)
-* [Results](#results)
-* [Files in this Repository](#files-in-this-repository)
-* [Conclusion](#conclusion)
+## 🧭 Table of Contents
+- [📌 Introduction](#-introduction)
+- [🎯 Project Goal](#-project-goal)
+- [🧾 Dataset](#-dataset)
+- [⚙️ Methodology](#-methodology)
+- [🤖 Models Implemented](#-models-implemented)
+- [📊 Results](#-results)
+- [📁 Files in this Repository](#-files-in-this-repository)
+- [📝 Conclusion](#-conclusion)
 
-## Introduction
+---
 
-The Titanic dataset is a classic for introducing machine learning concepts due to its relatively clean data and compelling historical context. This project aims to demonstrate the application of machine learning principles, from data preprocessing to model evaluation, in a binary classification problem.
+## 📌 Introduction
 
-## Project Goal
+The **Titanic dataset** is a classic benchmark in the field of data science and machine learning. Its real-world significance and relatively well-structured data make it perfect for introducing and demonstrating core ML concepts.
 
-The primary goal of this project is to predict whether a passenger survived the Titanic disaster based on a set of provided features. This is a binary classification task where the output is either "survived" or "did not survive".
+This project applies a full machine learning pipeline — from preprocessing to model evaluation — to solve a **binary classification problem**: predicting survival on the Titanic.
 
-## Dataset
+---
 
-The dataset used for this project is the famous Titanic dataset, available on Kaggle. It contains information about passengers, including:
-* Age
-* Gender
-* Fare
-* Ticket Class
-* Other attributes relevant to survival prediction.
+## 🎯 Project Goal
 
-The raw data is split into two files:
-* `train.csv`: Used for training the machine learning models.
-* `test.csv`: Used for making predictions and evaluating the model's performance on unseen data.
+The objective is to **predict whether a given passenger survived** the Titanic disaster based on personal and travel-related attributes.  
+This is a supervised classification task with two possible outcomes:
+- **1**: Survived
+- **0**: Did not survive
 
-## Methodology
+---
 
-The project followed a standard machine learning pipeline:
-1.  **Data Preprocessing**: Handling missing values, encoding categorical features, and transforming data to be suitable for model training.
-2.  **Feature Scaling**: Applying scaling techniques to ensure that features contribute equally to the model's performance, especially for distance-based algorithms.
-3.  **Model Implementation**: Training and tuning various machine learning algorithms.
-4.  **Model Evaluation**: Assessing model performance using metrics such as accuracy, precision, and recall.
+## 🧾 Dataset
 
-## Models Implemented
+The dataset is sourced from [Kaggle’s Titanic Challenge](https://www.kaggle.com/competitions/titanic). It includes demographic and socio-economic details of Titanic passengers.
 
-Three different machine learning models were implemented and compared in this project:
-* **Logistic Regression**: A linear model used for binary classification. It provides interpretable results.
-* **Random Forest**: An ensemble learning method that builds multiple decision trees and merges their predictions to improve accuracy and control overfitting.
-* **K-Nearest Neighbors (KNN)**: A non-parametric, lazy learning algorithm that classifies new data points based on the majority class of their 'k' nearest neighbors.
+Key features include:
+- `Age`
+- `Sex`
+- `Fare`
+- `Pclass` (Ticket Class)
+- `SibSp`, `Parch` (Family relationships)
+- `Embarked`, `Cabin`, `Ticket` and more.
 
-## Results
+### 🗂 Files
+- `train.csv` — For training and validating models.
+- `test.csv` — For evaluating model predictions on unseen data.
 
-The project demonstrated that machine learning algorithms can effectively predict survival outcomes. Among the implemented models:
-* **Random Forest** emerged as the most robust model, achieving a good balance between precision and recall.
-* **KNN** performed well in terms of overall accuracy, particularly when applied to scaled features.
-* **Logistic Regression**, while slightly less accurate, provided consistent and interpretable results.
+---
 
-Feature scaling and selection significantly impacted the model's performance, highlighting their importance in the preprocessing phase.
+## ⚙️ Methodology
 
-## Files in this Repository
+A typical machine learning workflow was followed:
 
-* `Projekt.ipynb`: The main Jupyter Notebook containing the complete code for data loading, preprocessing, model implementation, training, evaluation, and visualization. This is where the core analysis takes place.
-* `AIS_Report.pdf`: The detailed project report (in English), providing an in-depth explanation of the methodology, theoretical background, results, and conclusions. This document supplements the code with comprehensive insights.
-* `train.csv`: The training dataset for the Titanic challenge.
-* `test.csv`: The test dataset for the Titanic challenge.
+1. **🧹 Data Preprocessing**
+   - Imputation of missing values
+   - Label encoding for categorical variables
+   - Feature engineering (e.g., `FamilySize`, `IsAlone`)
+2. **⚖️ Feature Scaling**
+   - Standardization to ensure balanced input for distance-based models like KNN.
+3. **🧠 Model Implementation**
+   - Training multiple ML algorithms to compare their performance.
+4. **📈 Model Evaluation**
+   - Using metrics like accuracy, precision, recall, and confusion matrix to measure effectiveness.
 
-## Conclusion
+---
 
-This project successfully applied various machine learning techniques to the Titanic survival prediction problem. It showcases a practical understanding of data preprocessing, model selection, and performance evaluation. Future enhancements could include exploring additional features like family size and cabin location, or experimenting with more advanced models like Gradient Boosting or Neural Networks.
+## 🤖 Models Implemented
+
+Three machine learning algorithms were trained and compared:
+
+- **🔹 Logistic Regression**
+  - A simple yet powerful linear model for binary classification.
+  - Pros: Interpretable and fast.
+  
+- **🌲 Random Forest**
+  - An ensemble of decision trees; handles overfitting better.
+  - Pros: High accuracy and robust performance.
+
+- **👥 K-Nearest Neighbors (KNN)**
+  - A lazy learning algorithm that classifies based on proximity in feature space.
+  - Pros: Performs well with properly scaled data.
+
+---
+
+## 📊 Results
+
+The models delivered promising results, with **Random Forest** outperforming others overall.
+
+| Model               | Accuracy | Notes                          |
+|--------------------|----------|--------------------------------|
+| **Random Forest**   | ✅ High   | Best balance of accuracy and robustness |
+| **KNN**             | ✅ Good   | Improved with scaling          |
+| **Logistic Regression** | ✔️ Moderate | Simple and interpretable       |
+
+> 🔍 Feature engineering (e.g., combining `SibSp` and `Parch`) and scaling significantly improved performance.
+
+---
+
+## 📁 Files in this Repository
+
+| File | Description |
+|------|-------------|
+| `Projekt.ipynb` | The main Jupyter Notebook with the full pipeline: data loading, preprocessing, training, and evaluation. |
+| `AIS_Report.pdf` | A detailed written report covering methodology, background theory, and results. |
+| `train.csv` | Training data for the Titanic challenge. |
+| `test.csv` | Test data for final predictions. |
+
+---
+
+## 📝 Conclusion
+
+This project successfully demonstrates how classic machine learning techniques can be applied to real-world problems. It reinforces the importance of:
+- Data preprocessing
+- Feature scaling and engineering
+- Model comparison and evaluation
+
+### 🚀 Future Work
+To further improve performance, future enhancements could include:
+- Feature extraction from `Cabin` and `Ticket` fields
+- Ensemble stacking or boosting (e.g., XGBoost, LightGBM)
+- Incorporating deep learning models for comparison
+
+---
+
+> *"A smooth sea never made a skilled sailor."*  
+> ― Franklin D. Roosevelt
+
+---
